@@ -2,6 +2,6 @@ node('Spring')
 {
     stage('VCS')
     {
-        git 'https://github.com/spring-projects/spring-petclinic.git'
+        git 'https://github.com/pgottipalli/jenkinsrepo.git'
     }
 }

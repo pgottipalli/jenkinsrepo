@@ -14,7 +14,7 @@ node('Spring')
     }
     stage('MOVING_JAR')
     {
-	sh 'mkdir myarchieves/'$JOB_NAME'/'$BUILD_ID'-'$date +%F_%H:%M:%S''
-        sh 'cp -r target/*.jar myarchieves/'$JOB_NAME'/'$BUILD_ID'-'$date +%F_%H:%M:%S''
+	sh 'mkdir myarchieves/$JOB_NAME/$BUILD_ID-$date +%F_%H:%M:%S'
+        sh 'cp -r target/*.jar myarchieves/$JOB_NAME/$BUILD_ID-$date +%F_%H:%M:%S'
     }
 }

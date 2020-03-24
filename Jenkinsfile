@@ -12,8 +12,9 @@ node('Spring')
     {
         archive 'target/*.jar'
     }
-    stage('LOGS')
+    stage('MOVING_JAR')
     {
-        junit 'target/surefire-reports/*.xml'
+        sh 'mkdir myarchieves/'$JOB_NAME'/'$BUILD_ID'-'date +%F_%H:%M:%S''
+        sh 'cp -r target/*.jar myarchieves/'$JOB_NAME'/'$BUILD_ID'-'date +%F_%H:%M:%S''
     }
 }

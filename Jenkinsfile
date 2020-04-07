@@ -17,4 +17,11 @@ node('Spring')
 	sh 'mkdir -p myarchieves/$JOB_NAME/$BUILD_ID/$(date +%F_%H:%M:%S)'
         sh 'cp -r target/*.jar myarchieves/$JOB_NAME/$BUILD_ID/$(date +%F_%H:%M:%S)'
     }
+    stage('Code_Analize')
+    {
+            withSonarQubeEnv('SONAR') 
+        {
+            sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+        }
+    }
 }
